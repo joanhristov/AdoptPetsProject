@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\WebProject\\AdoptPetsProject\\AdoptPetsProject\\AdoptPetsProject.csproj": {}
+    "C:\\Users\\jonny\\OneDrive\\Desktop\\ProjectWorkspace\\AdoptPetsProject\\AdoptPetsProject\\AdoptPetsProject.csproj": {}
   },
   "projects": {
-    "E:\\WebProject\\AdoptPetsProject\\AdoptPetsProject\\AdoptPetsProject.csproj": {
+    "C:\\Users\\jonny\\OneDrive\\Desktop\\ProjectWorkspace\\AdoptPetsProject\\AdoptPetsProject\\AdoptPetsProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\WebProject\\AdoptPetsProject\\AdoptPetsProject\\AdoptPetsProject.csproj",
+        "projectUniqueName": "C:\\Users\\jonny\\OneDrive\\Desktop\\ProjectWorkspace\\AdoptPetsProject\\AdoptPetsProject\\AdoptPetsProject.csproj",
         "projectName": "AdoptPetsProject",
-        "projectPath": "E:\\WebProject\\AdoptPetsProject\\AdoptPetsProject\\AdoptPetsProject.csproj",
+        "projectPath": "C:\\Users\\jonny\\OneDrive\\Desktop\\ProjectWorkspace\\AdoptPetsProject\\AdoptPetsProject\\AdoptPetsProject.csproj",
         "packagesPath": "C:\\Users\\jonny\\.nuget\\packages\\",
-        "outputPath": "E:\\WebProject\\AdoptPetsProject\\AdoptPetsProject\\obj\\",
+        "outputPath": "C:\\Users\\jonny\\OneDrive\\Desktop\\ProjectWorkspace\\AdoptPetsProject\\AdoptPetsProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
