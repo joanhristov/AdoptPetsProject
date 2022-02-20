@@ -6,18 +6,25 @@
     using AdoptPetsProject.Models.Home;
     using AdoptPetsProject.Models;
     using AdoptPetsProject.Data;
-    
+    using AdoptPetsProject.Services.Statistics;
 
     public class HomeController : Controller
     {
+        private readonly IStatisticsService statistics;
         private readonly AdoptPetsDbContext data;
 
-        public HomeController(AdoptPetsDbContext data)
-            => this.data = data;
+        public HomeController(
+            IStatisticsService statistics,
+            AdoptPetsDbContext data)
+        {
+            this.statistics = statistics;
+            this.data = data;
+        }
 
         public IActionResult Index()
         {
             var totalPets = this.data.Pets.Count();
+            var totalUsers = this.data.Users.Count();
 
             var pets = this.data
                 .Pets
@@ -33,9 +40,12 @@
                 .Take(3)
                 .ToList();
 
+            var totalStatistics = this.statistics.Total();
+
             return View(new IndexViewModel
             {
-                TotalPets = totalPets,
+                TotalPets = totalStatistics.TotalPets,
+                TotalUsers = totalStatistics.TotalUsers,
                 Pets = pets
             });
         }

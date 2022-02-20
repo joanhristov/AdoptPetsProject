@@ -7,13 +7,19 @@
     using AdoptPetsProject.Models.Pets;
     using AdoptPetsProject.Data.Models;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Authorization;
+    using AdoptPetsProject.Services.Pets;
 
     public class PetsController : Controller
     {
+        private readonly IPetService pets;
         private readonly AdoptPetsDbContext data;
 
-        public PetsController(AdoptPetsDbContext data)
-            => this.data = data;
+        public PetsController(IPetService pets, AdoptPetsDbContext data)
+        {
+            this.pets = pets;
+            this.data = data;
+        }
 
         public IActionResult Add() => View(new AddPetFormModel
         {
@@ -22,60 +28,26 @@
 
 
 
-        public IActionResult All([FromQuery]AllPetsQueryModel query)
+        public IActionResult All([FromQuery] AllPetsQueryModel query)
         {
-            var petsQuery = this.data.Pets.AsQueryable();
+            var queryResult = this.pets.All(
+                query.Breed,
+                query.SearchTerm,
+                query.Sorting,
+                query.CurrentPage,
+                AllPetsQueryModel.PetsPerPage);
 
-            if (!string.IsNullOrWhiteSpace(query.Breed))
-            {
-                petsQuery = petsQuery.Where(p => p.Breed == query.Breed);
-            }
+            var petBreeds = this.pets.AllPetBreeds();
 
-            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
-            {
-                petsQuery = petsQuery.Where(p =>
-                (p.Breed + " " + p.Name).ToLower().Contains(query.SearchTerm.ToLower()) ||
-                p.Description.ToLower().Contains(query.SearchTerm.ToLower()));
-            }
-
-            petsQuery = query.Sorting switch
-            {
-                PetSorting.Age => petsQuery.OrderByDescending(p => p.Age),
-                PetSorting.BreedAndKind => petsQuery.OrderBy(p => p.Breed).ThenBy(p => p.Kind),
-                _ => petsQuery.OrderByDescending(p => p.Id)
-            };
-
-            var totalPets = petsQuery.Count();
-
-            var pets = petsQuery
-                .Skip((query.CurrentPage - 1) * AllPetsQueryModel.PetsPerPage)
-                .Take(AllPetsQueryModel.PetsPerPage)
-                .Select(p => new PetListingViewModel
-                {
-                    Id = p.Id,
-                    Breed = p.Breed,
-                    Name = p.Name,
-                    ImageUrl = p.ImageUrl,
-                    Age = p.Age,
-                    Kind = p.Kind.Name
-                })
-                .ToList();
-
-            var petBreeds = this.data
-                .Pets
-                .Select(p => p.Breed)
-                .Distinct()
-                .OrderBy(br => br)
-                .ToList();
-
-            query.TotalPets = totalPets;
             query.Breeds = petBreeds;
-            query.Pets = pets;
+            query.TotalPets = queryResult.TotalPets;
+            query.Pets = queryResult.Pets;
 
             return View(query);
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(AddPetFormModel pet, IFormFile image)
         {
 

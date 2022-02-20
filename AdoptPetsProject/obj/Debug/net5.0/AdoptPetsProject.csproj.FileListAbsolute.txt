@@ -360,7 +360,6 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\runtimes\win-x8
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.csproj.AssemblyReference.cache
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.GeneratedMSBuildEditorConfig.editorconfig
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.AssemblyInfoInputs.cache
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.AssemblyInfo.cs
@@ -393,3 +392,4 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProjec
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\ref\AdoptPetsProject.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.pdb
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.genruntimeconfig.cache
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.csproj.AssemblyReference.cache

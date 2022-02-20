@@ -9,6 +9,8 @@ namespace AdoptPetsProject
     using Microsoft.Extensions.DependencyInjection;
     using AdoptPetsProject.Data;
     using AdoptPetsProject.Infrastructure;
+    using AdoptPetsProject.Services.Statistics;
+    using AdoptPetsProject.Services.Pets;
 
     public class Startup
     {
@@ -37,6 +39,9 @@ namespace AdoptPetsProject
 
             services
                 .AddControllersWithViews();
+
+            services.AddTransient<IStatisticsService, StatisticsService>();
+            services.AddTransient<IPetService, PetService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

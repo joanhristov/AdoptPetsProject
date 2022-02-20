@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+    using AdoptPetsProject.Services.Pets;
 
     public class AllPetsQueryModel
     {
@@ -20,6 +21,6 @@
 
         public IEnumerable<string> Breeds { get; set; }
 
-        public IEnumerable<PetListingViewModel> Pets { get; set; }
+        public IEnumerable<PetServiceModel> Pets { get; set; }
     }
 }
