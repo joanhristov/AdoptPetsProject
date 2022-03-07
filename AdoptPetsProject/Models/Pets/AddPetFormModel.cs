@@ -6,21 +6,21 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using static Data.DataConstants;
+    using static Data.DataConstants.Pet;
 
     public class AddPetFormModel
     {
         [Required]
-        [StringLength(PetBreedMaxLength, MinimumLength = PetBreedMinLength)]
+        [StringLength(BreedMaxLength, MinimumLength = BreedMinLength)]
         public string Breed { get; init; }
 
         [Required]
-        [StringLength(PetNameMaxLength, MinimumLength = PetNameMinLength)]
+        [StringLength(NameMaxLength, MinimumLength = NameMinLength)]
         public string Name { get; init; }
 
         public string Gender { get; init; }
 
-        [Range(PetAgeMinValue, PetAgeMaxValue)]
+        [Range(AgeMinValue, AgeMaxValue)]
         public int Age { get; init; }
 
         public DateTime BirthDate { get; init; }
@@ -33,7 +33,7 @@
         [Required]
         [StringLength(
             int.MaxValue, 
-            MinimumLength = PetDescriptionMinLength, 
+            MinimumLength = DescriptionMinLength, 
             ErrorMessage = "The field Description must be a string with a minimum length of {2}.")]
         public string Description { get; init; }
 

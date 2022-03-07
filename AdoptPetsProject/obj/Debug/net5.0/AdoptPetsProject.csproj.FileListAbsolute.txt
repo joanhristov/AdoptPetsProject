@@ -6,7 +6,6 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\AdoptPetsProjec
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\AdoptPetsProject.runtimeconfig.json
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\AdoptPetsProject.runtimeconfig.dev.json
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\AdoptPetsProject.dll
-D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\ref\AdoptPetsProject.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\AdoptPetsProject.pdb
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Antiforgery.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -393,3 +392,4 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\ref\AdoptPetsPr
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.pdb
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.genruntimeconfig.cache
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.csproj.AssemblyReference.cache
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\refint\AdoptPetsProject.dll

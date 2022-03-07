@@ -1,27 +1,24 @@
 ﻿namespace AdoptPetsProject.Data.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Threading.Tasks;
 
-    using static DataConstants;
+    using static DataConstants.Pet;
 
     public class Pet
     {
         public int Id { get; init; }
 
         [Required]
-        [MaxLength(PetBreedMaxLength)]
+        [MaxLength(BreedMaxLength)]
         public string Breed { get; set; }
 
         [Required]
-        [MaxLength(PetNameMaxLength)]
+        [MaxLength(NameMaxLength)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(PetGenderMaxLength)]
+        [MaxLength(GenderMaxLength)]
         public string Gender { get; set; }
         
         [Required]
@@ -39,5 +36,9 @@
         public int KindId { get; set; }
 
         public Kind Kind { get; init; }
+
+        public int DonatorId { get; init; }
+
+        public Donator Donator { get; init; }
     }
 }
