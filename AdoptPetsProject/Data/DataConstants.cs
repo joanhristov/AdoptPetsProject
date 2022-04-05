@@ -19,9 +19,11 @@ namespace AdoptPetsProject.Data
             public const int AgeMaxValue = 20;
         }
 
-        public class Dealer
+        public class Donator
         {
+            public const int NameMinLength = 2;
             public const int NameMaxLength = 25;
+            public const int PhoneNumberMinLength = 6;
             public const int PhoneNumberMaxLength = 30;
         }
 

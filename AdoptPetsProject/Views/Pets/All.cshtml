@@ -67,6 +67,15 @@
     </div>
 </div>
 
+@if (!Model.Pets.Any())
+{
+    <div class="alert alert-danger" role="alert">
+        No pets found by the given criteria!
+    </div>
+
+    <img src="\sleeping_dog.png" class="rounded mx-auto d-block" alt="...">
+}
+
 <div class="row">
     @foreach (var pet in Model.Pets)
     {

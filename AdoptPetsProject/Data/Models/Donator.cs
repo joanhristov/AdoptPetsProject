@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using static DataConstants.Dealer;
+    using static DataConstants.Donator;
 
     public class Donator
     {

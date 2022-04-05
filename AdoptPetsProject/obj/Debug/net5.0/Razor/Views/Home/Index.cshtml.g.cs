@@ -40,8 +40,15 @@ using AdoptPetsProject.Models.Pets;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Models.Donators;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ccf9cf67327dc280cc5feef35bb5058458943060", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"178329c5306620fc3dff4623b28c9e5550e1d2d8", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ec3ded54144d1a7c716070b452c572519a274e51", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IndexViewModel>
     #nullable disable
@@ -100,7 +107,7 @@ using AdoptPetsProject.Models.Pets;
         <hr class=""my-4"">
         <p class=""lead"">
             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccf9cf67327dc280cc5feef35bb50584589430606186", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccf9cf67327dc280cc5feef35bb50584589430606381", async() => {
                 WriteLiteral("Add pet");
             }
             );
@@ -182,7 +189,7 @@ WriteAttributeValue(" ", 1231, pet.Name, 1232, 9, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(" width=\"100\" height=\"500\">\r\n                    <div class=\"carousel-caption d-none d-md-block\">\r\n                        <h5>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccf9cf67327dc280cc5feef35bb505845894306010252", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccf9cf67327dc280cc5feef35bb505845894306010447", async() => {
 #nullable restore
 #line 31 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\Home\Index.cshtml"
                                                                                                                     Write(pet.Breed);

@@ -9,6 +9,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Authorization;
     using AdoptPetsProject.Services.Pets;
+    using AdoptPetsProject.Infrastructure;
 
     public class PetsController : Controller
     {
@@ -20,13 +21,6 @@
             this.pets = pets;
             this.data = data;
         }
-
-        public IActionResult Add() => View(new AddPetFormModel
-        {
-            Kinds = this.GetPetKinds()
-        });
-
-
 
         public IActionResult All([FromQuery] AllPetsQueryModel query)
         {
@@ -46,6 +40,20 @@
             return View(query);
         }
 
+        [Authorize]
+        public IActionResult Add()
+        {
+            if (!this.UserIsDonator())
+            {
+                return RedirectToAction(nameof(DonatorsController.Become), "Donators");
+            }
+
+            return View(new AddPetFormModel
+            {
+                Kinds = this.GetPetKinds()
+            });
+        }
+
         [HttpPost]
         [Authorize]
         public IActionResult Add(AddPetFormModel pet, IFormFile image)
@@ -56,6 +64,17 @@
             //{
             //    this.ModelState.AddModelError("Image", "The image is not valid. It is required and it should be less than 2 MB.");
             //}
+
+            var donatorId = this.data
+                .Donators
+                .Where(d => d.UserId == this.User.GetId())
+                .Select(d => d.Id)
+                .FirstOrDefault();
+
+            if (donatorId == 0)
+            {
+                return RedirectToAction(nameof(DonatorsController.Become), "Donators");
+            }
 
             if (!this.data.Kinds.Any(k => k.Id == pet.KindId))
             {
@@ -78,7 +97,8 @@
                 Age = pet.Age,
                 BirthDate = pet.BirthDate,
                 ImageUrl = pet.ImageUrl,
-                Description = pet.Description
+                Description = pet.Description,
+                DonatorId = donatorId
             };
 
             this.data.Pets.Add(petData);
@@ -87,6 +107,11 @@
 
             return RedirectToAction(nameof(All));
         }
+
+        private bool UserIsDonator()
+            => this.data
+                .Donators
+                .Any(d => d.UserId == this.User.GetId());
 
         private IEnumerable<PetKindViewModel> GetPetKinds()
             => this.data
