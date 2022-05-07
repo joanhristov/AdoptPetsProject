@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PetServiceModel> 
+
+@{
+    ViewData["Title"] = "My Pets";
+    ViewBag.AllowCarEdit = true;
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-danger" role="alert">
+        You don't have any pets for adoption yet!
+    </div>
+
+    <img src="\shrugging_dog.png" class="rounded mx-auto d-block" alt="...">
+}
+
+<partial name="_PetsPartial" model="@Model" />

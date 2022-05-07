@@ -22,7 +22,7 @@
         [Authorize]
         public IActionResult Become(BecomeDonatorFormModel donator)
         {
-            var userId = this.User.GetId();
+            var userId = this.User.Id();
 
             var userIsAlreadyADonator = this.data
                 .Donators

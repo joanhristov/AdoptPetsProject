@@ -1,10 +1,8 @@
 ﻿namespace AdoptPetsProject.Controllers
 {
-    using System.Diagnostics;
     using System.Linq;
     using Microsoft.AspNetCore.Mvc;
     using AdoptPetsProject.Models.Home;
-    using AdoptPetsProject.Models;
     using AdoptPetsProject.Data;
     using AdoptPetsProject.Services.Statistics;
 
@@ -50,7 +48,6 @@
             });
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error() => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        public IActionResult Error() => View();
     }
 }

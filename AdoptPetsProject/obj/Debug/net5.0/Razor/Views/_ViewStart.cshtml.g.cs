@@ -21,34 +21,55 @@ using AdoptPetsProject;
 #nullable disable
 #nullable restore
 #line 2 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models;
+using AdoptPetsProject.Infrastructure;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models.Home;
+using AdoptPetsProject.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models.Pets;
+using AdoptPetsProject.Models.Home;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Models.Pets;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
 using AdoptPetsProject.Models.Donators;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Services.Pets;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Services.Donators;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ec3ded54144d1a7c716070b452c572519a274e51", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bf922419c514d6a2eb47338e9df11035e57c06e0", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable

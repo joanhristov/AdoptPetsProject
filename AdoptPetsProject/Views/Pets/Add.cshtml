@@ -1,59 +1,7 @@
-﻿@model AddPetFormModel
+﻿@model PetFormModel
 
 @{
     ViewData["Title"] = "Add Pet";
 }
 
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        <h2 class="heading-margin text-center">Add Pet &#x1F649;</h2>
-        <form method="post">
-            <div class="form-group">
-                <label asp-for="KindId"></label>
-                <select asp-for="KindId" class="form-control">
-                    @foreach (var kind in Model.Kinds)
-                    {
-                        <option value="@kind.Id">@kind.Name</option>
-                    }
-                </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Breed"></label>
-                <input asp-for="Breed" class="form-control" placeholder="Shih-Tzu, Amstaff, Akita">
-                <span asp-validation-for="Breed" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control" placeholder="Rex, Buck, etc.">
-                <span asp-validation-for="Name" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Gender">Gender &#x2642;&#x2640;</label>
-                <select asp-for="Gender" class="form-control">
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age"></label>
-                <input asp-for="Age" class="form-control">
-                <span asp-validation-for="Age" class="small text-danger"></span>
-            </div>
-            <div>
-                <label asp-for="BirthDate">BirthDate &#x1F4C6;</label>
-                <input asp-for="BirthDate" class="form-control">
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageUrl">Image URL &#x1F5BC;</label>
-                <input asp-for="ImageUrl" class="form-control" placeholder="Your fine URL here...">
-                <span asp-validation-for="ImageUrl" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description">Description &#x1F4DC;</label>
-                <textarea asp-for="Description" rows="4" class="form-control" placeholder="Calm, Smart, Lovely, etc..."></textarea>
-                <span asp-validation-for="Description" class="small text-danger"></span>
-            </div>
-            <input class="btn btn-primary mt-3" type="submit" value="save" />
-        </form>
-    </div>
-</div>
+<partial name="_PetFormPartial" model="@Model" />

@@ -21,34 +21,55 @@ using AdoptPetsProject;
 #nullable disable
 #nullable restore
 #line 2 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models;
+using AdoptPetsProject.Infrastructure;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models.Home;
+using AdoptPetsProject.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models.Pets;
+using AdoptPetsProject.Models.Home;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Models.Pets;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
 using AdoptPetsProject.Models.Donators;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Services.Pets;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Services.Donators;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a47", @"/Views/Shared/_ValidationScriptsPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ec3ded54144d1a7c716070b452c572519a274e51", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bf922419c514d6a2eb47338e9df11035e57c06e0", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared__ValidationScriptsPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -79,7 +100,7 @@ using AdoptPetsProject.Models.Donators;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a474576", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a475160", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -93,7 +114,7 @@ using AdoptPetsProject.Models.Donators;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a475615", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a476199", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

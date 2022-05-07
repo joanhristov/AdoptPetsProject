@@ -11,7 +11,6 @@
                 <label asp-for="Breed"></label>
                 <select asp-for="Breed" class="form-control">
                     <option value="">All</option>
-
                     @foreach (var breed in Model.Breeds)
                     {
                         <option value="@breed">@breed</option>
@@ -76,17 +75,4 @@
     <img src="\sleeping_dog.png" class="rounded mx-auto d-block" alt="...">
 }
 
-<div class="row">
-    @foreach (var pet in Model.Pets)
-    {
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img class="card-img-top" src="@pet.ImageUrl" alt="@pet.Kind - @pet.Breed @pet.Name - @pet.Age">
-                <div class="card-body">
-                    <h5 class="card-title">@pet.Kind - @pet.Breed @pet.Name - @pet.Age</h5>
-                    <a asp-controller="Pets" asp-action="Details" asp-route-id="@pet.Id" class="btn btn-primary">View More</a>
-                </div>
-            </div>
-        </div>
-    }
-</div>
+<partial name ="_PetsPartial" model="@Model.Pets" />

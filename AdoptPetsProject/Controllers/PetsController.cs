@@ -1,25 +1,24 @@
 ﻿namespace AdoptPetsProject.Controllers
 {
-    using System.Linq;
-    using System.Collections.Generic;
     using Microsoft.AspNetCore.Mvc;
-    using AdoptPetsProject.Data;
     using AdoptPetsProject.Models.Pets;
-    using AdoptPetsProject.Data.Models;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Authorization;
+    using AdoptPetsProject.Services.Donators;
     using AdoptPetsProject.Services.Pets;
     using AdoptPetsProject.Infrastructure;
+
 
     public class PetsController : Controller
     {
         private readonly IPetService pets;
-        private readonly AdoptPetsDbContext data;
+        private readonly IDonatorService donators;
 
-        public PetsController(IPetService pets, AdoptPetsDbContext data)
+        public PetsController(IPetService pets,
+            IDonatorService donators)
         {
             this.pets = pets;
-            this.data = data;
+            this.donators = donators;
         }
 
         public IActionResult All([FromQuery] AllPetsQueryModel query)
@@ -31,7 +30,7 @@
                 query.CurrentPage,
                 AllPetsQueryModel.PetsPerPage);
 
-            var petBreeds = this.pets.AllPetBreeds();
+            var petBreeds = this.pets.AllBreeds();
 
             query.Breeds = petBreeds;
             query.TotalPets = queryResult.TotalPets;
@@ -41,22 +40,30 @@
         }
 
         [Authorize]
+        public IActionResult Mine()
+        {
+            var myPets = this.pets.ByUser(this.User.Id());
+
+            return View(myPets);
+        }
+
+        [Authorize]
         public IActionResult Add()
         {
-            if (!this.UserIsDonator())
+            if (!this.donators.IsDonator(this.User.Id()))
             {
                 return RedirectToAction(nameof(DonatorsController.Become), "Donators");
             }
 
-            return View(new AddPetFormModel
+            return View(new PetFormModel
             {
-                Kinds = this.GetPetKinds()
+                Kinds = this.pets.AllKinds()
             });
         }
 
         [HttpPost]
         [Authorize]
-        public IActionResult Add(AddPetFormModel pet, IFormFile image)
+        public IActionResult Add(PetFormModel pet, IFormFile image)
         {
 
 
@@ -65,62 +72,110 @@
             //    this.ModelState.AddModelError("Image", "The image is not valid. It is required and it should be less than 2 MB.");
             //}
 
-            var donatorId = this.data
-                .Donators
-                .Where(d => d.UserId == this.User.GetId())
-                .Select(d => d.Id)
-                .FirstOrDefault();
+            var donatorId = this.donators.IdByUser(this.User.Id());
 
             if (donatorId == 0)
             {
                 return RedirectToAction(nameof(DonatorsController.Become), "Donators");
             }
 
-            if (!this.data.Kinds.Any(k => k.Id == pet.KindId))
+            if (!this.pets.KindExists(pet.KindId))
             {
                 this.ModelState.AddModelError(nameof(pet.KindId), "Kind does not exist.");
             }
 
             if (!ModelState.IsValid)
             {
-                pet.Kinds = this.GetPetKinds();
+                pet.Kinds = this.pets.AllKinds();
 
                 return View(pet);
             }
 
-            var petData = new Pet
-            {
-                KindId = pet.KindId,
-                Breed = pet.Breed,
-                Name = pet.Name,
-                Gender = pet.Gender,
-                Age = pet.Age,
-                BirthDate = pet.BirthDate,
-                ImageUrl = pet.ImageUrl,
-                Description = pet.Description,
-                DonatorId = donatorId
-            };
-
-            this.data.Pets.Add(petData);
-
-            this.data.SaveChanges();
+            this.pets.Create(
+                pet.Breed,
+                pet.Name,
+                pet.Gender,
+                pet.Age,
+                pet.BirthDate,
+                pet.Description,
+                pet.ImageUrl,
+                pet.KindId,
+                donatorId);
 
             return RedirectToAction(nameof(All));
         }
 
-        private bool UserIsDonator()
-            => this.data
-                .Donators
-                .Any(d => d.UserId == this.User.GetId());
+        [Authorize]
+        public IActionResult Edit(int id)
+        {
+            var userId = this.User.Id();
 
-        private IEnumerable<PetKindViewModel> GetPetKinds()
-            => this.data
-                    .Kinds
-                    .Select(k => new PetKindViewModel
-                    {
-                        Id = k.Id,
-                        Name = k.Name
-                    })
-                    .ToList();
+            if (!this.donators.IsDonator(userId))
+            {
+                return RedirectToAction(nameof(DonatorsController.Become), "Donators");
+            }
+
+            var pet = this.pets.Details(id);
+
+            if (pet.UserId != userId)
+            {
+                return Unauthorized();
+            }
+
+            return View(new PetFormModel
+            {
+                Breed = pet.Breed,
+                Name = pet.Name,
+                Description = pet.Description,
+                ImageUrl = pet.ImageUrl,
+                BirthDate = pet.BirthDate,
+                Gender = pet.Gender,
+                Age = pet.Age,
+                KindId = pet.KindId,
+                Kinds = this.pets.AllKinds()
+            });
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Edit(int id, PetFormModel pet)
+        {
+            var donatorId = this.donators.IdByUser(this.User.Id());
+
+            if (donatorId == 0)
+            {
+                return RedirectToAction(nameof(DonatorsController.Become), "Donators");
+            }
+
+            if (!this.pets.KindExists(pet.KindId))
+            {
+                this.ModelState.AddModelError(nameof(pet.KindId), "Kind does not exist.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                pet.Kinds = this.pets.AllKinds();
+
+                return View(pet);
+            }
+
+            if (!this.pets.IsByDonator(id, donatorId))
+            {
+
+            }
+
+            this.pets.Edit(
+                id,
+                pet.Breed,
+                pet.Name,
+                pet.Gender,
+                pet.Age,
+                pet.BirthDate,
+                pet.Description,
+                pet.ImageUrl,
+                pet.KindId);
+
+            return RedirectToAction(nameof(All));
+        }
     }
 }

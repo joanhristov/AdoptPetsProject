@@ -21,34 +21,55 @@ using AdoptPetsProject;
 #nullable disable
 #nullable restore
 #line 2 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models;
+using AdoptPetsProject.Infrastructure;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models.Home;
+using AdoptPetsProject.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Models.Pets;
+using AdoptPetsProject.Models.Home;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Models.Pets;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
 using AdoptPetsProject.Models.Donators;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Services.Pets;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
+using AdoptPetsProject.Services.Donators;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d75b04a360f915de2ab26b20c88419ecd34e7bdd", @"/Views/Shared/_Layout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ec3ded54144d1a7c716070b452c572519a274e51", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bf922419c514d6a2eb47338e9df11035e57c06e0", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -98,7 +119,7 @@ using AdoptPetsProject.Models.Donators;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd9387", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd9971", async() => {
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
 #nullable restore
 #line 6 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\Shared\_Layout.cshtml"
@@ -108,7 +129,7 @@ using AdoptPetsProject.Models.Donators;
 #line hidden
 #nullable disable
                 WriteLiteral(" - Ad&#x1F43E;pt Me Today-</title>\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d75b04a360f915de2ab26b20c88419ecd34e7bdd10040", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d75b04a360f915de2ab26b20c88419ecd34e7bdd10624", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -123,7 +144,7 @@ using AdoptPetsProject.Models.Donators;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d75b04a360f915de2ab26b20c88419ecd34e7bdd11219", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d75b04a360f915de2ab26b20c88419ecd34e7bdd11803", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -150,9 +171,9 @@ using AdoptPetsProject.Models.Donators;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd13102", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd13686", async() => {
                 WriteLiteral("\r\n    <header>\r\n        <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3\">\r\n            <div class=\"container\">\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd13558", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd14142", async() => {
                     WriteLiteral("Ad&#x1F436;pt Me Today");
                 }
                 );
@@ -181,7 +202,7 @@ using AdoptPetsProject.Models.Donators;
                     <ul class=""navbar-nav flex-grow-1"">
                         <li class=""nav-item"">
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd15877", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd16461", async() => {
                     WriteLiteral("Add Pet");
                 }
                 );
@@ -202,7 +223,7 @@ using AdoptPetsProject.Models.Donators;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd17719", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd18303", async() => {
                     WriteLiteral("All Pets");
                 }
                 );
@@ -223,7 +244,7 @@ using AdoptPetsProject.Models.Donators;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        </li>\r\n                    </ul>\r\n                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d75b04a360f915de2ab26b20c88419ecd34e7bdd19534", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d75b04a360f915de2ab26b20c88419ecd34e7bdd20118", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -254,7 +275,7 @@ using AdoptPetsProject.Models.Donators;
 #line hidden
 #nullable disable
                 WriteLiteral(" - AdoptPetsProject \r\n        </div>\r\n    </footer>\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd21560", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd22144", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -268,7 +289,7 @@ using AdoptPetsProject.Models.Donators;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd22661", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd23245", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -282,7 +303,7 @@ using AdoptPetsProject.Models.Donators;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd23762", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75b04a360f915de2ab26b20c88419ecd34e7bdd24346", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

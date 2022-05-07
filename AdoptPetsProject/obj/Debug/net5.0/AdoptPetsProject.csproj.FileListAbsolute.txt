@@ -394,3 +394,7 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProjec
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\AdoptPetsProject.csproj.AssemblyReference.cache
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\refint\AdoptPetsProject.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Views\Donators\Become.cshtml.g.cs
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Views\Pets\Mine.cshtml.g.cs
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Views\Pets\_PetsPartial.cshtml.g.cs
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Views\Pets\Edit.cshtml.g.cs
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Views\Pets\_PetFormPartial.cshtml.g.cs

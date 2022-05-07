@@ -11,6 +11,8 @@ namespace AdoptPetsProject
     using AdoptPetsProject.Infrastructure;
     using AdoptPetsProject.Services.Statistics;
     using AdoptPetsProject.Services.Pets;
+    using Microsoft.AspNetCore.Mvc;
+    using AdoptPetsProject.Services.Donators;
 
     public class Startup
     {
@@ -38,10 +40,14 @@ namespace AdoptPetsProject
                 .AddEntityFrameworkStores<AdoptPetsDbContext>();
 
             services
-                .AddControllersWithViews();
-
-            services.AddTransient<IStatisticsService, StatisticsService>();
+                .AddControllersWithViews(options =>
+                {
+                    options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+                });
+            
             services.AddTransient<IPetService, PetService>();
+            services.AddTransient<IDonatorService, DonatorService>();
+            services.AddTransient<IStatisticsService, StatisticsService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
