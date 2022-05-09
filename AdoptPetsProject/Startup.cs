@@ -13,6 +13,7 @@ namespace AdoptPetsProject
     using AdoptPetsProject.Services.Pets;
     using Microsoft.AspNetCore.Mvc;
     using AdoptPetsProject.Services.Donators;
+    using AdoptPetsProject.Data.Models;
 
     public class Startup
     {
@@ -30,13 +31,14 @@ namespace AdoptPetsProject
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services
-                .AddDefaultIdentity<IdentityUser>(options =>
+                .AddDefaultIdentity<User>(options =>
                     {
                         options.Password.RequireDigit = false;
                         options.Password.RequireLowercase = false;
                         options.Password.RequireNonAlphanumeric = false;
                         options.Password.RequireUppercase = false;
                     })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<AdoptPetsDbContext>();
 
             services

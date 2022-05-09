@@ -1,11 +1,10 @@
 ﻿namespace AdoptPetsProject.Data
 {
     using AdoptPetsProject.Data.Models;
-    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class AdoptPetsDbContext : IdentityDbContext
+    public class AdoptPetsDbContext : IdentityDbContext<User>
     {
         public AdoptPetsDbContext(DbContextOptions<AdoptPetsDbContext> options)
             : base(options)
@@ -34,7 +33,7 @@
 
             builder
                 .Entity<Donator>()
-                .HasOne<IdentityUser>()
+                .HasOne<User>()
                 .WithOne()
                 .HasForeignKey<Donator>(d => d.UserId)
                 .OnDelete(DeleteBehavior.Restrict);

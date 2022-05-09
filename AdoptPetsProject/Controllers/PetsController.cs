@@ -110,14 +110,14 @@
         {
             var userId = this.User.Id();
 
-            if (!this.donators.IsDonator(userId))
+            if (!this.donators.IsDonator(userId) && !User.IsAdmin())
             {
                 return RedirectToAction(nameof(DonatorsController.Become), "Donators");
             }
 
             var pet = this.pets.Details(id);
 
-            if (pet.UserId != userId)
+            if (pet.UserId != userId && !User.IsAdmin())
             {
                 return Unauthorized();
             }
@@ -142,7 +142,7 @@
         {
             var donatorId = this.donators.IdByUser(this.User.Id());
 
-            if (donatorId == 0)
+            if (donatorId == 0 && !User.IsAdmin())
             {
                 return RedirectToAction(nameof(DonatorsController.Become), "Donators");
             }
@@ -159,9 +159,9 @@
                 return View(pet);
             }
 
-            if (!this.pets.IsByDonator(id, donatorId))
+            if (!this.pets.IsByDonator(id, donatorId) && !User.IsAdmin())
             {
-
+                return BadRequest();
             }
 
             this.pets.Edit(

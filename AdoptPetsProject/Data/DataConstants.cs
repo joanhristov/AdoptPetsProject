@@ -7,6 +7,14 @@ namespace AdoptPetsProject.Data
 {
     public class DataConstants
     {
+        public class User
+        {
+            public const int FullNameMinLength = 5;
+            public const int FullNameMaxLength = 40;
+            public const int PassWordMinLenght = 6;
+            public const int PassWordMaxLenght = 100;
+        }
+
         public class Pet
         {
             public const int BreedMaxLength = 20;

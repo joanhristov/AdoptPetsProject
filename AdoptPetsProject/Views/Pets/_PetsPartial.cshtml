@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h5 class="card-title">@pet.KindName - @pet.Breed - @pet.Name - @pet.Age</h5>
                     <a asp-controller="Pets" asp-action="Details" asp-route-id="@pet.Id" class="btn btn-primary">View</a>
-                    @if (ViewBag.AllowCarEdit == true)
+                    @if (ViewBag.AllowCarEdit == true || User.IsAdmin())
                     {
                         <a asp-controller="Pets" asp-action="Edit" asp-route-id="@pet.Id" class="btn btn-warning">Edit</a>
                         <a asp-controller="Pets" asp-action="Delete" asp-route-id="@pet.Id" class="btn btn-danger">Delete</a>

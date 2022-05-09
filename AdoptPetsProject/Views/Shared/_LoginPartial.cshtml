@@ -1,7 +1,8 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using AdoptPetsProject.Data.Models
+@using Microsoft.AspNetCore.Identity
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @inject IDonatorService Donators
 
 
@@ -11,14 +12,15 @@
 {
         var userId = User.Id();
         var userIsDonator = Donators.IsDonator(userId);
+        var userIsAdmin = User.IsAdmin();
 
-    @if(userIsDonator)
+    @if(userIsDonator && !userIsAdmin)
     {
         <li class="nav-item">
         <a  class="nav-link text-dark" asp-area="Identity" asp-controller="Pets" asp-action="Mine">My animals&#x1F408</a>
         </li>
     }
-    else
+    else if (!userIsAdmin)
     {
         <li class="nav-item">
         <a  class="nav-link text-dark" asp-area="Identity" asp-controller="Donators" asp-action="Become">Become animal donator&#x1F3E1</a>
