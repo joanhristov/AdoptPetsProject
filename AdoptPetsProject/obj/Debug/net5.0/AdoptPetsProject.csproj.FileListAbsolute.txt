@@ -445,3 +445,5 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\runtimes\win-ar
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Pets\Index.cshtml.g.cs
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
