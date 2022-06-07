@@ -1,4 +1,4 @@
-﻿namespace AdoptPetsProject.Services.Pets
+﻿namespace AdoptPetsProject.Services.Pets.Models
 {
     public class PetDetailsServiceModel : PetServiceModel
     {

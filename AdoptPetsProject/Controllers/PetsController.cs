@@ -7,18 +7,21 @@
     using AdoptPetsProject.Services.Donators;
     using AdoptPetsProject.Services.Pets;
     using AdoptPetsProject.Infrastructure;
-
+    using AutoMapper;
 
     public class PetsController : Controller
     {
         private readonly IPetService pets;
         private readonly IDonatorService donators;
+        private readonly IMapper mapper;
 
         public PetsController(IPetService pets,
-            IDonatorService donators)
+            IDonatorService donators, 
+            IMapper mapper)
         {
             this.pets = pets;
             this.donators = donators;
+            this.mapper = mapper;
         }
 
         public IActionResult All([FromQuery] AllPetsQueryModel query)
@@ -122,18 +125,11 @@
                 return Unauthorized();
             }
 
-            return View(new PetFormModel
-            {
-                Breed = pet.Breed,
-                Name = pet.Name,
-                Description = pet.Description,
-                ImageUrl = pet.ImageUrl,
-                BirthDate = pet.BirthDate,
-                Gender = pet.Gender,
-                Age = pet.Age,
-                KindId = pet.KindId,
-                Kinds = this.pets.AllKinds()
-            });
+            var petForm = this.mapper.Map<PetFormModel>(pet);
+
+            petForm.Kinds = this.pets.AllKinds();
+
+            return View(petForm);
         }
 
         [HttpPost]

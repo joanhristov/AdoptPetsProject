@@ -96,7 +96,6 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.Xml.dll
-D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -119,8 +118,6 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.ObjectPool.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.DataAnnotations.dll
-D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.dll
-D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.Primitives.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Extensions.WebEncoders.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.JSInterop.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\Microsoft.Net.Http.Headers.dll
@@ -219,7 +216,6 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\System.Ref
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\System.Resources.Reader.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\System.Resources.ResourceManager.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\System.Resources.Writer.dll
-D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\System.Runtime.CompilerServices.Unsafe.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\System.Runtime.CompilerServices.VisualC.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\System.Runtime.dll
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\refs\System.Runtime.Extensions.dll
@@ -447,3 +443,9 @@ D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Ide
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Pets\Index.cshtml.g.cs
 D:\WebProject\AdoptPetsProject\AdoptPetsProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\AutoMapper.dll
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\WebProject\AdoptPetsProject\AdoptPetsProject\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using AdoptPetsProject.Models;
-    
+    using AdoptPetsProject.Services.Pets.Models;
 
     public interface IPetService
     {

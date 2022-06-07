@@ -5,18 +5,23 @@
     using AdoptPetsProject.Models.Home;
     using AdoptPetsProject.Data;
     using AdoptPetsProject.Services.Statistics;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
 
     public class HomeController : Controller
     {
         private readonly IStatisticsService statistics;
+        private readonly IConfigurationProvider mapper;
         private readonly AdoptPetsDbContext data;
 
         public HomeController(
             IStatisticsService statistics,
-            AdoptPetsDbContext data)
+            AdoptPetsDbContext data, 
+            IMapper mapper)
         {
             this.statistics = statistics;
             this.data = data;
+            this.mapper = mapper.ConfigurationProvider;
         }
 
         public IActionResult Index()
@@ -27,14 +32,7 @@
             var pets = this.data
                 .Pets
                 .OrderByDescending(p => p.Id)
-                .Select(p => new PetIndexViewModel
-                {
-                    Id = p.Id,
-                    Breed = p.Breed,
-                    Name = p.Name,
-                    ImageUrl = p.ImageUrl,
-                    Age = p.Age
-                })
+                .ProjectTo<PetIndexViewModel>(this.mapper)
                 .Take(3)
                 .ToList();
 

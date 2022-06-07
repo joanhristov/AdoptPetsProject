@@ -56,7 +56,7 @@ using AdoptPetsProject.Models.Donators;
 #nullable disable
 #nullable restore
 #line 7 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Services.Pets;
+using AdoptPetsProject.Services.Pets.Models;
 
 #line default
 #line hidden
@@ -69,7 +69,7 @@ using AdoptPetsProject.Services.Donators;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"511309b278886e29dae7ddf5c6cef40a0de924ae", @"/Views/Pets/Add.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bf922419c514d6a2eb47338e9df11035e57c06e0", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"860ea8b63b71f93405c896fc708b3a86f79371a3", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Pets_Add : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PetFormModel>
     #nullable disable
@@ -110,7 +110,7 @@ using AdoptPetsProject.Services.Donators;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "511309b278886e29dae7ddf5c6cef40a0de924ae5098", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "511309b278886e29dae7ddf5c6cef40a0de924ae5105", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -135,7 +135,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = Model;
             WriteLiteral("\r\n\r\n");
             DefineSection("Scripts", async() => {
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "511309b278886e29dae7ddf5c6cef40a0de924ae6756", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "511309b278886e29dae7ddf5c6cef40a0de924ae6763", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

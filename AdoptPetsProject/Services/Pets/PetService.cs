@@ -6,13 +6,21 @@
     using AdoptPetsProject.Data;
     using AdoptPetsProject.Data.Models;
     using AdoptPetsProject.Models;
+    using AdoptPetsProject.Services.Pets.Models;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
 
     public class PetService : IPetService
     {
         private readonly AdoptPetsDbContext data;
+        private readonly IConfigurationProvider mapper;
 
-        public PetService(AdoptPetsDbContext data)
-            => this.data = data;
+        public PetService(AdoptPetsDbContext data, 
+            IMapper mapper)
+        {
+            this.data = data;
+            this.mapper = mapper.ConfigurationProvider;
+        }
 
         public PetQueryServiceModel All(
             string breed,
@@ -59,21 +67,9 @@
         public PetDetailsServiceModel Details(int id)
             => this.data
                 .Pets
-            .Where(p => p.Id == id)
-            .Select(p => new PetDetailsServiceModel
-            {
-                Id = p.Id,
-                Breed = p.Breed,
-                Name = p.Name,
-                Description = p.Description,
-                ImageUrl = p.ImageUrl,
-                Age = p.Age,
-                KindName = p.Kind.Name,
-                DonatorId = p.DonatorId,
-                DonatorName = p.Donator.Name,
-                UserId = p.Donator.UserId
-            })
-            .FirstOrDefault();
+                .Where(p => p.Id == id)
+                .ProjectTo<PetDetailsServiceModel>(this.mapper)
+                .FirstOrDefault();
 
         public int Create(string breed, string name, string gender, int age, DateTime birthDate, string description, string imageUrl, int kindId, int donatorId)
         {

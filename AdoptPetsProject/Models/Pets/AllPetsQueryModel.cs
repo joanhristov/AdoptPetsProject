@@ -3,6 +3,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     using AdoptPetsProject.Services.Pets;
+    using AdoptPetsProject.Services.Pets.Models;
 
     public class AllPetsQueryModel
     {

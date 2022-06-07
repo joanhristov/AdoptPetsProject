@@ -56,7 +56,7 @@ using AdoptPetsProject.Models.Donators;
 #nullable disable
 #nullable restore
 #line 7 "D:\WebProject\AdoptPetsProject\AdoptPetsProject\Views\_ViewImports.cshtml"
-using AdoptPetsProject.Services.Pets;
+using AdoptPetsProject.Services.Pets.Models;
 
 #line default
 #line hidden
@@ -69,7 +69,7 @@ using AdoptPetsProject.Services.Donators;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"63c2ae83dac9e65c84d1695787abb21aec6bdea6", @"/Views/Pets/_PetsPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bf922419c514d6a2eb47338e9df11035e57c06e0", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"860ea8b63b71f93405c896fc708b3a86f79371a3", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Pets__PetsPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<PetServiceModel>>
     #nullable disable
@@ -189,7 +189,7 @@ WriteAttributeValue(" ", 272, pet.Age, 273, 8, false);
 #line hidden
 #nullable disable
             WriteLiteral("</h5>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63c2ae83dac9e65c84d1695787abb21aec6bdea69627", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63c2ae83dac9e65c84d1695787abb21aec6bdea69634", async() => {
                 WriteLiteral("View");
             }
             );
@@ -232,7 +232,7 @@ WriteAttributeValue(" ", 272, pet.Age, 273, 8, false);
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63c2ae83dac9e65c84d1695787abb21aec6bdea612402", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63c2ae83dac9e65c84d1695787abb21aec6bdea612409", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -266,7 +266,7 @@ WriteAttributeValue(" ", 272, pet.Age, 273, 8, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63c2ae83dac9e65c84d1695787abb21aec6bdea614891", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63c2ae83dac9e65c84d1695787abb21aec6bdea614898", async() => {
                 WriteLiteral("Delete");
             }
             );

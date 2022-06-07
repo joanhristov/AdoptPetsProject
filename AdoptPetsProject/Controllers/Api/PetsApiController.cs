@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Mvc;
     using AdoptPetsProject.Models.Api.Pets;
     using AdoptPetsProject.Services.Pets;
+    using AdoptPetsProject.Services.Pets.Models;
 
     [ApiController]
     [Route("api/pets")]
