@@ -3,37 +3,27 @@
     using System.Linq;
     using Microsoft.AspNetCore.Mvc;
     using AdoptPetsProject.Models.Home;
-    using AdoptPetsProject.Data;
     using AdoptPetsProject.Services.Statistics;
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
+    using AdoptPetsProject.Services.Pets;
+
 
     public class HomeController : Controller
     {
+        private readonly IPetService pets;
         private readonly IStatisticsService statistics;
-        private readonly IConfigurationProvider mapper;
-        private readonly AdoptPetsDbContext data;
 
         public HomeController(
-            IStatisticsService statistics,
-            AdoptPetsDbContext data, 
-            IMapper mapper)
+            IPetService pets,
+            IStatisticsService statistics)
         {
+            this.pets = pets;
             this.statistics = statistics;
-            this.data = data;
-            this.mapper = mapper.ConfigurationProvider;
         }
 
         public IActionResult Index()
         {
-            var totalPets = this.data.Pets.Count();
-            var totalUsers = this.data.Users.Count();
-
-            var pets = this.data
-                .Pets
-                .OrderByDescending(p => p.Id)
-                .ProjectTo<PetIndexViewModel>(this.mapper)
-                .Take(3)
+            var latestPets = this.pets
+                .Latest()
                 .ToList();
 
             var totalStatistics = this.statistics.Total();
@@ -42,7 +32,7 @@
             {
                 TotalPets = totalStatistics.TotalPets,
                 TotalUsers = totalStatistics.TotalUsers,
-                Pets = pets
+                Pets = latestPets
             });
         }
 

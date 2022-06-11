@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AdoptPetsProject.Services.Pets.Models;
+using System.Collections.Generic;
 
 namespace AdoptPetsProject.Models.Home
 {
@@ -8,6 +9,6 @@ namespace AdoptPetsProject.Models.Home
         public int TotalUsers { get; init; }
         public int TotalAdoptions { get; init; }
 
-        public List<PetIndexViewModel> Pets { get; init; }
+        public IList<LatestPetsServiceModel> Pets { get; init; }
     }
 }

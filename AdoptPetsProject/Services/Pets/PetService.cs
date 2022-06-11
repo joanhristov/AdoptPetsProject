@@ -15,7 +15,7 @@
         private readonly AdoptPetsDbContext data;
         private readonly IConfigurationProvider mapper;
 
-        public PetService(AdoptPetsDbContext data, 
+        public PetService(AdoptPetsDbContext data,
             IMapper mapper)
         {
             this.data = data;
@@ -64,6 +64,15 @@
                 Pets = pets
             };
         }
+
+        public IEnumerable<LatestPetsServiceModel> Latest()
+            => this.data
+                .Pets
+                .OrderByDescending(p => p.Id)
+                .ProjectTo<LatestPetsServiceModel>(this.mapper)
+                .Take(3)
+                .ToList();
+
         public PetDetailsServiceModel Details(int id)
             => this.data
                 .Pets
@@ -93,7 +102,7 @@
             return petData.Id;
         }
 
-        public bool Edit(int id, string breed, string name, string gender, int age, 
+        public bool Edit(int id, string breed, string name, string gender, int age,
             DateTime birthDate, string description, string imageUrl, int kindId)
         {
             var petData = this.data.Pets.Find(id);

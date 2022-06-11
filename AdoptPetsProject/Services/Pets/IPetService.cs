@@ -14,6 +14,8 @@
             int currentPage,
             int petsPerPage);
 
+        IEnumerable<LatestPetsServiceModel> Latest();
+
         PetDetailsServiceModel Details(int petId);
 
         int Create(
