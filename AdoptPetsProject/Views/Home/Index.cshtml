@@ -1,10 +1,10 @@
-﻿@model IndexViewModel
+﻿@model List<LatestPetsServiceModel>
 
 @{
     ViewData["Title"] = "Give them a family";
 }
 
-@if (!Model.Pets.Any())
+@if (!Model.Any())
 {
     <div class="jumbotron">
         <h1 class="display-4">Welcome to the best place to give a family to pets!</h1>
@@ -23,9 +23,9 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
         <div class="carousel-inner">
-            @for (var i = 0; i < Model.Pets.Count; i++)
+            @for (var i = 0; i < Model.Count; i++)
             {
-                var pet = Model.Pets[i];
+                var pet = Model[i];
                 <div class="carousel-item @(i == 0 ? "active" : string.Empty)">
                     <img class="d-block w-100" src="@pet.ImageUrl" alt="@pet.Breed @pet.Name" width="100" height="500">
                     <div class="carousel-caption d-none d-md-block">

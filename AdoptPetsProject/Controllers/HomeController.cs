@@ -2,38 +2,44 @@
 {
     using System.Linq;
     using Microsoft.AspNetCore.Mvc;
-    using AdoptPetsProject.Models.Home;
-    using AdoptPetsProject.Services.Statistics;
     using AdoptPetsProject.Services.Pets;
-
+    using Microsoft.Extensions.Caching.Memory;
+    using System.Collections.Generic;
+    using AdoptPetsProject.Services.Pets.Models;
+    using System;
 
     public class HomeController : Controller
     {
         private readonly IPetService pets;
-        private readonly IStatisticsService statistics;
+        private readonly IMemoryCache cache;
 
         public HomeController(
             IPetService pets,
-            IStatisticsService statistics)
+            IMemoryCache cache)
         {
             this.pets = pets;
-            this.statistics = statistics;
+            this.cache = cache;
         }
 
         public IActionResult Index()
         {
-            var latestPets = this.pets
-                .Latest()
-                .ToList();
+            const string latestPetsCacheKey = "LatestPetsCacheKey";
 
-            var totalStatistics = this.statistics.Total();
+            var latestPets = this.cache.Get<List<LatestPetsServiceModel>>(latestPetsCacheKey);
 
-            return View(new IndexViewModel
+            if (latestPets == null)
             {
-                TotalPets = totalStatistics.TotalPets,
-                TotalUsers = totalStatistics.TotalUsers,
-                Pets = latestPets
-            });
+                latestPets = this.pets
+                    .Latest()
+                    .ToList();
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(15));
+
+                this.cache.Set(latestPetsCacheKey, latestPets, cacheOptions);
+            }
+
+            return View(latestPets);
         }
 
         public IActionResult Error() => View();
