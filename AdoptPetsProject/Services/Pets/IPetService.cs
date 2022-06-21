@@ -8,11 +8,12 @@
     public interface IPetService
     {
         PetQueryServiceModel All(
-            string breed,
-            string searchTerm,
-            PetSorting sorting,
-            int currentPage,
-            int petsPerPage);
+            string breed = null,
+            string searchTerm = null,
+            PetSorting sorting = PetSorting.Age,
+            int currentPage = 1,
+            int petsPerPage = int.MaxValue,
+            bool publicOnly = true);
 
         IEnumerable<LatestPetsServiceModel> Latest();
 
@@ -38,11 +39,14 @@
             DateTime birthDate,
             string description,
             string imageUrl,
-            int kindId);
+            int kindId,
+            bool isPublic);
 
         IEnumerable<PetServiceModel> ByUser(string userId);
 
         bool IsByDonator(int petId, int donatorId);
+
+        void ChangeVisibility(int carId);
 
         IEnumerable<string> AllBreeds();
 

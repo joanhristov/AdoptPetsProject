@@ -12,7 +12,7 @@
 
         public StatisticsServiceModel Total()
         {
-            var totalPets = this.data.Pets.Count();
+            var totalPets = this.data.Pets.Count(p => p.IsPublic);
             var totalUsers = this.data.Users.Count();
 
             return new StatisticsServiceModel

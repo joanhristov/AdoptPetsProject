@@ -23,13 +23,15 @@
         }
 
         public PetQueryServiceModel All(
-            string breed,
-            string searchTerm,
-            PetSorting sorting,
-            int currentPage,
-            int petsPerPage)
+            string breed = null,
+            string searchTerm = null,
+            PetSorting sorting = PetSorting.Age,
+            int currentPage = 1,
+            int petsPerPage = int.MaxValue,
+            bool publicOnly = true)
         {
-            var petsQuery = this.data.Pets.AsQueryable();
+            var petsQuery = this.data.Pets
+                .Where(p => !publicOnly || p.IsPublic);
 
             if (!string.IsNullOrWhiteSpace(breed))
             {
@@ -68,6 +70,7 @@
         public IEnumerable<LatestPetsServiceModel> Latest()
             => this.data
                 .Pets
+                .Where(p => p.IsPublic)
                 .OrderByDescending(p => p.Id)
                 .ProjectTo<LatestPetsServiceModel>(this.mapper)
                 .Take(3)
@@ -92,7 +95,8 @@
                 Description = description,
                 ImageUrl = imageUrl,
                 KindId = kindId,
-                DonatorId = donatorId
+                DonatorId = donatorId,
+                IsPublic = false
             };
 
             this.data.Pets.Add(petData);
@@ -102,8 +106,16 @@
             return petData.Id;
         }
 
-        public bool Edit(int id, string breed, string name, string gender, int age,
-            DateTime birthDate, string description, string imageUrl, int kindId)
+        public bool Edit(int id,
+            string breed,
+            string name,
+            string gender,
+            int age,
+            DateTime birthDate,
+            string description,
+            string imageUrl,
+            int kindId,
+            bool isPublic)
         {
             var petData = this.data.Pets.Find(id);
 
@@ -120,21 +132,31 @@
             petData.Description = description;
             petData.ImageUrl = imageUrl;
             petData.KindId = kindId;
+            petData.IsPublic = isPublic;
 
             this.data.SaveChanges();
 
             return true;
         }
 
+        public IEnumerable<PetServiceModel> ByUser(string userId)
+            => GetPets(this.data
+                .Pets
+                .Where(p => p.Donator.UserId == userId));
+
         public bool IsByDonator(int petId, int donatorId)
             => this.data
                 .Pets
                 .Any(p => p.Id == petId && p.DonatorId == donatorId);
 
-        public IEnumerable<PetServiceModel> ByUser(string userId)
-            => GetPets(this.data
-                .Pets
-                .Where(p => p.Donator.UserId == userId));
+        public void ChangeVisibility(int petId)
+        {
+            var pet = this.data.Pets.Find(petId);
+
+            pet.IsPublic = !pet.IsPublic;
+
+            this.data.SaveChanges();
+        }
 
         public IEnumerable<string> AllBreeds()
             => this.data
@@ -146,11 +168,7 @@
         public IEnumerable<PetKindServiceModel> AllKinds()
             => this.data
                 .Kinds
-                .Select(k => new PetKindServiceModel
-                {
-                    Id = k.Id,
-                    Name = k.Name
-                })
+                .ProjectTo<PetKindServiceModel>(this.mapper)
                 .ToList();
 
         public bool KindExists(int kindId)
@@ -158,17 +176,9 @@
                 .Kinds
                 .Any(k => k.Id == kindId);
 
-        private static IEnumerable<PetServiceModel> GetPets(IQueryable<Pet> petQuery)
+        private IEnumerable<PetServiceModel> GetPets(IQueryable<Pet> petQuery)
             => petQuery
-                .Select(p => new PetServiceModel
-                {
-                    Id = p.Id,
-                    Breed = p.Breed,
-                    Name = p.Name,
-                    ImageUrl = p.ImageUrl,
-                    Age = p.Age,
-                    KindName = p.Kind.Name
-                })
+                .ProjectTo<PetServiceModel>(this.mapper)
                 .ToList();
     }
 }

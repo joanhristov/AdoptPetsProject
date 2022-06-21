@@ -24,6 +24,8 @@
         [Required]
         public int Age { get; set; }
 
+        public bool IsPublic { get; set; }
+
         [Required]
         public DateTime BirthDate { get; set; }
 

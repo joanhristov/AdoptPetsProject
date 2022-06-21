@@ -8,12 +8,12 @@ namespace AdoptPetsProject
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using AdoptPetsProject.Data;
-    using AdoptPetsProject.Infrastructure;
     using AdoptPetsProject.Services.Statistics;
     using AdoptPetsProject.Services.Pets;
     using Microsoft.AspNetCore.Mvc;
     using AdoptPetsProject.Services.Donators;
     using AdoptPetsProject.Data.Models;
+    using AdoptPetsProject.Infrastructure.Extensions;
 
     public class Startup
     {
@@ -80,6 +80,12 @@ namespace AdoptPetsProject
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapDefaultAreaRoute();
+
+                    endpoints.MapControllerRoute(
+                        name: "Pet Details",
+                        pattern: "/Pets/Details/{id}/{information}",
+                        defaults: new { controller = "Pets", action = "Details" });
+
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();
                 });

@@ -2,7 +2,7 @@
 {
     using AdoptPetsProject.Data;
     using AdoptPetsProject.Data.Models;
-    using AdoptPetsProject.Infrastructure;
+    using AdoptPetsProject.Infrastructure.Extensions;
     using AdoptPetsProject.Models.Donators;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;

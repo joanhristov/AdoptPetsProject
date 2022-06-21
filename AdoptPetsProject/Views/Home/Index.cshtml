@@ -1,4 +1,6 @@
-﻿@model List<LatestPetsServiceModel>
+﻿@using AdoptPetsProject.Infrastructure
+
+@model List<LatestPetsServiceModel>
 
 @{
     ViewData["Title"] = "Give them a family";
@@ -29,7 +31,7 @@
                 <div class="carousel-item @(i == 0 ? "active" : string.Empty)">
                     <img class="d-block w-100" src="@pet.ImageUrl" alt="@pet.Breed @pet.Name" width="100" height="500">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5><a class="btn btn-primary" asp-controller="Pets" asp-action="Details" asp-route-id="@pet.Id">@pet.Breed @pet.Name - @pet.Age</a></h5>
+                        <h5><a class="btn btn-primary" asp-controller="Pets" asp-action="Details" asp-route-id="@pet.Id" asp-route-information="@pet.GetInformation()">@pet.Breed @pet.Name - @pet.Age</a></h5>
                     </div>
                 </div>
             }

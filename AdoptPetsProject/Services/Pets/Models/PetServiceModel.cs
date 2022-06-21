@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class PetServiceModel
+    public class PetServiceModel : IPetModel
     {
         public int Id { get; init; }
 
@@ -19,5 +19,7 @@
         public int Age { get; init; }
 
         public string KindName { get; init; }
+
+        public bool IsPublic { get; init; }
     }
 }

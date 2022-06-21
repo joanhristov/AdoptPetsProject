@@ -8,6 +8,7 @@
     using AdoptPetsProject.Services.Pets;
     using AdoptPetsProject.Infrastructure;
     using AutoMapper;
+    using AdoptPetsProject.Infrastructure.Extensions;
 
     public class PetsController : Controller
     {
@@ -48,6 +49,18 @@
             var myPets = this.pets.ByUser(this.User.Id());
 
             return View(myPets);
+        }
+
+        public IActionResult Details(int id, string information)
+        {
+            var pet = this.pets.Details(id);
+
+            if (information != pet.GetInformation())
+            {
+                return BadRequest();
+            }
+
+            return View(pet);
         }
 
         [Authorize]
@@ -94,7 +107,7 @@
                 return View(pet);
             }
 
-            this.pets.Create(
+                var petId = pets.Create(
                 pet.Breed,
                 pet.Name,
                 pet.Gender,
@@ -105,7 +118,7 @@
                 pet.KindId,
                 donatorId);
 
-            return RedirectToAction(nameof(All));
+            return RedirectToAction(nameof(Details), new { id = petId, information = pet.GetInformation()});
         }
 
         [Authorize]
@@ -169,9 +182,10 @@
                 pet.BirthDate,
                 pet.Description,
                 pet.ImageUrl,
-                pet.KindId);
+                pet.KindId,
+                this.User.IsAdmin());
 
-            return RedirectToAction(nameof(All));
+            return RedirectToAction(nameof(Details), new { id, information = pet.GetInformation() });
         }
     }
 }
