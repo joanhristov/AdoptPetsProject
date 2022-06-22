@@ -1,8 +1,8 @@
 ﻿namespace AdoptPetsProject.Data
 {
-    using AdoptPetsProject.Data.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using AdoptPetsProject.Data.Models;
 
     public class AdoptPetsDbContext : IdentityDbContext<User>
     {

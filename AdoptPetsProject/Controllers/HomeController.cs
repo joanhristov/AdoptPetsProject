@@ -1,12 +1,14 @@
 ﻿namespace AdoptPetsProject.Controllers
 {
-    using System.Linq;
-    using Microsoft.AspNetCore.Mvc;
-    using AdoptPetsProject.Services.Pets;
-    using Microsoft.Extensions.Caching.Memory;
-    using System.Collections.Generic;
-    using AdoptPetsProject.Services.Pets.Models;
     using System;
+    using System.Linq;
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Caching.Memory;
+    using AdoptPetsProject.Services.Pets;
+    using AdoptPetsProject.Services.Pets.Models;
+    
+    using static WebConstants.Cache;
 
     public class HomeController : Controller
     {
@@ -23,9 +25,8 @@
 
         public IActionResult Index()
         {
-            const string latestPetsCacheKey = "LatestPetsCacheKey";
 
-            var latestPets = this.cache.Get<List<LatestPetsServiceModel>>(latestPetsCacheKey);
+            var latestPets = this.cache.Get<List<LatestPetsServiceModel>>(LatestPetsCacheKey);
 
             if (latestPets == null)
             {
@@ -36,7 +37,7 @@
                 var cacheOptions = new MemoryCacheEntryOptions()
                     .SetAbsoluteExpiration(TimeSpan.FromMinutes(15));
 
-                this.cache.Set(latestPetsCacheKey, latestPets, cacheOptions);
+                this.cache.Set(LatestPetsCacheKey, latestPets, cacheOptions);
             }
 
             return View(latestPets);

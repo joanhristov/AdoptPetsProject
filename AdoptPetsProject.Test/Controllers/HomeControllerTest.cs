@@ -1,11 +1,8 @@
 ﻿namespace AdoptPetsProject.Test.Controllers
 {
-    using AdoptPetsProject.Controllers;
-    using AdoptPetsProject.Data.Models;
     using Microsoft.AspNetCore.Mvc;
-    using System.Collections.Generic;
-    using System.Linq;
     using Xunit;
+    using AdoptPetsProject.Controllers;
 
     public class HomeControllerTest
     {
@@ -38,7 +35,7 @@
             Assert.IsType<ViewResult>(result);
         }
 
-        private static IEnumerable<Pet> GetPets()
-            => Enumerable.Range(0, 10).Select(i => new Pet());
+        //private static IEnumerable<Pet> GetPets()
+        //    => Enumerable.Range(0, 10).Select(i => new Pet());
     }
 }

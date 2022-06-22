@@ -1,12 +1,14 @@
 ﻿namespace AdoptPetsProject.Controllers
 {
+    using System.Linq;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
     using AdoptPetsProject.Data;
     using AdoptPetsProject.Data.Models;
-    using AdoptPetsProject.Infrastructure.Extensions;
     using AdoptPetsProject.Models.Donators;
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
-    using System.Linq;
+    using AdoptPetsProject.Infrastructure.Extensions;
+    
+    using static WebConstants;
 
     public class DonatorsController : Controller
     {
@@ -48,7 +50,9 @@
             this.data.Donators.Add(donatorData);
             this.data.SaveChanges();
 
-            return RedirectToAction("All", "Pets");
+            TempData[GlobalMessageKey] = "Thank you for becoming a donator!";
+
+            return RedirectToAction(nameof(PetsController.All), "Pets");
         }
     }
 }

@@ -1,14 +1,16 @@
 ﻿namespace AdoptPetsProject.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using AdoptPetsProject.Models.Pets;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Authorization;
-    using AdoptPetsProject.Services.Donators;
+    using AutoMapper;
+    using AdoptPetsProject.Models.Pets;
     using AdoptPetsProject.Services.Pets;
     using AdoptPetsProject.Infrastructure;
-    using AutoMapper;
+    using AdoptPetsProject.Services.Donators;
     using AdoptPetsProject.Infrastructure.Extensions;
+
+    using static WebConstants;
 
     public class PetsController : Controller
     {
@@ -118,6 +120,8 @@
                 pet.KindId,
                 donatorId);
 
+            TempData[GlobalMessageKey] = "You pet was added and is awaiting for approval!";
+
             return RedirectToAction(nameof(Details), new { id = petId, information = pet.GetInformation()});
         }
 
@@ -173,7 +177,7 @@
                 return BadRequest();
             }
 
-            this.pets.Edit(
+            var edited = this.pets.Edit(
                 id,
                 pet.Breed,
                 pet.Name,
@@ -184,6 +188,13 @@
                 pet.ImageUrl,
                 pet.KindId,
                 this.User.IsAdmin());
+
+            if (!edited)
+            {
+                return BadRequest();
+            }
+
+            TempData[GlobalMessageKey] = $"You pet was edited{(this.User.IsAdmin() ? string.Empty : " and is awaiting for approval")}!";
 
             return RedirectToAction(nameof(Details), new { id, information = pet.GetInformation() });
         }

@@ -1,8 +1,8 @@
 ﻿namespace AdoptPetsProject.Controllers.Api
 {
     using Microsoft.AspNetCore.Mvc;
-    using AdoptPetsProject.Models.Api.Pets;
     using AdoptPetsProject.Services.Pets;
+    using AdoptPetsProject.Models.Api.Pets;
     using AdoptPetsProject.Services.Pets.Models;
 
     [ApiController]
@@ -11,11 +11,11 @@
     {
         private readonly IPetService pets;
 
-        public PetsApiController(IPetService pets) 
+        public PetsApiController(IPetService pets)
             => this.pets = pets;
 
         [HttpGet]
-        public PetQueryServiceModel All([FromQuery] AllPetsApiRequestModel query) 
+        public PetQueryServiceModel All([FromQuery] AllPetsApiRequestModel query)
             => this.pets.All(
                 query.Breed,
                 query.SearchTerm,

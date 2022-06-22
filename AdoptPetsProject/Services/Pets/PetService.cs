@@ -1,15 +1,15 @@
 ﻿namespace AdoptPetsProject.Services.Pets
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using AdoptPetsProject.Data;
-    using AdoptPetsProject.Data.Models;
-    using AdoptPetsProject.Models;
-    using AdoptPetsProject.Services.Pets.Models;
+    using System.Collections.Generic;
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
-
+    using AdoptPetsProject.Data;
+    using AdoptPetsProject.Models;
+    using AdoptPetsProject.Data.Models;
+    using AdoptPetsProject.Services.Pets.Models;
+    
     public class PetService : IPetService
     {
         private readonly AdoptPetsDbContext data;

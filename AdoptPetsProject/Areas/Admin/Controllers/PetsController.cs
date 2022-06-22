@@ -1,13 +1,13 @@
 ﻿namespace AdoptPetsProject.Areas.Admin.Controllers
 {
-    using AdoptPetsProject.Services.Pets;
     using Microsoft.AspNetCore.Mvc;
+    using AdoptPetsProject.Services.Pets;
 
     public class PetsController : AdminController
     {
         private readonly IPetService pets;
 
-        public PetsController(IPetService pets) 
+        public PetsController(IPetService pets)
             => this.pets = pets;
 
         public IActionResult All()

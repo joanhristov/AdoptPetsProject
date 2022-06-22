@@ -1,6 +1,5 @@
 ﻿namespace AdoptPetsProject.Services.Pets.Models
 {
-
     public class LatestPetsServiceModel : IPetModel
     {
         public int Id { get; init; }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace AdoptPetsProject.Data
+﻿namespace AdoptPetsProject.Data
 {
     public class DataConstants
     {

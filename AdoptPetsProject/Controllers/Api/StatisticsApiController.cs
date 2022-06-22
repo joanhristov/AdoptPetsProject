@@ -1,8 +1,8 @@
 ﻿namespace AdoptPetsProject.Controllers.Api
 {
-    using AdoptPetsProject.Services.Statistics;
     using Microsoft.AspNetCore.Mvc;
-
+    using AdoptPetsProject.Services.Statistics;
+    
     [ApiController]
     [Route("api/statistics")]
     public class StatisticsApiController : ControllerBase

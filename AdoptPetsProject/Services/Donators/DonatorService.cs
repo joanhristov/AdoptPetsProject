@@ -1,7 +1,7 @@
 ﻿namespace AdoptPetsProject.Services.Donators
 {
-    using AdoptPetsProject.Data;
     using System.Linq;
+    using AdoptPetsProject.Data;
 
     public class DonatorService : IDonatorService
     {

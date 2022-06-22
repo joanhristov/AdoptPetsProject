@@ -1,6 +1,7 @@
 ﻿namespace AdoptPetsProject.Infrastructure.Extensions
 {
     using System.Security.Claims;
+
     using static Areas.Admin.AdminConstants;
 
     public static class ClaimsPrincipalExtensions

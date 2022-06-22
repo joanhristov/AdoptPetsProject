@@ -1,8 +1,7 @@
 ﻿namespace AdoptPetsProject.Models.Pets
 {
-    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
-    using AdoptPetsProject.Services.Pets;
+    using System.ComponentModel.DataAnnotations;
     using AdoptPetsProject.Services.Pets.Models;
 
     public class AllPetsQueryModel

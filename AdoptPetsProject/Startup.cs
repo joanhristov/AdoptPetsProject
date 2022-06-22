@@ -1,5 +1,6 @@
 namespace AdoptPetsProject
 {
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;
@@ -8,11 +9,11 @@ namespace AdoptPetsProject
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using AdoptPetsProject.Data;
-    using AdoptPetsProject.Services.Statistics;
-    using AdoptPetsProject.Services.Pets;
-    using Microsoft.AspNetCore.Mvc;
-    using AdoptPetsProject.Services.Donators;
+    using AdoptPetsProject.Controllers;
     using AdoptPetsProject.Data.Models;
+    using AdoptPetsProject.Services.Pets;
+    using AdoptPetsProject.Services.Donators;
+    using AdoptPetsProject.Services.Statistics;
     using AdoptPetsProject.Infrastructure.Extensions;
 
     public class Startup
@@ -51,7 +52,7 @@ namespace AdoptPetsProject
                 {
                     options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
                 });
-            
+
             services.AddTransient<IPetService, PetService>();
             services.AddTransient<IDonatorService, DonatorService>();
             services.AddTransient<IStatisticsService, StatisticsService>();
@@ -84,7 +85,11 @@ namespace AdoptPetsProject
                     endpoints.MapControllerRoute(
                         name: "Pet Details",
                         pattern: "/Pets/Details/{id}/{information}",
-                        defaults: new { controller = "Pets", action = "Details" });
+                        defaults: new
+                        {
+                            controller = typeof(PetsController).GetControllerName(),
+                            action = nameof(PetsController.Details)
+                        });
 
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();

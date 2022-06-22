@@ -3,13 +3,13 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using AdoptPetsProject.Data;
-    using AdoptPetsProject.Data.Models;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
-
+    using AdoptPetsProject.Data;
+    using AdoptPetsProject.Data.Models;
+    
     using static Areas.Admin.AdminConstants;
 
     public static class ApplicationBuilderExtensions
