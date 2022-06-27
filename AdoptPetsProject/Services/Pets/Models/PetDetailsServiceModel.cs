@@ -11,5 +11,7 @@
         public string DonatorName { get; init; }
 
         public string UserId { get; set; }
+
+        public string PhoneNumber { get; set; }
     }
 }

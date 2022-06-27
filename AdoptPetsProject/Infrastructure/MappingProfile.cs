@@ -19,6 +19,7 @@
                 .ForMember(p => p.KindName, cfg => cfg.MapFrom(p => p.Kind.Name));
 
             this.CreateMap<Pet, PetDetailsServiceModel>()
+                .ForMember(p => p.PhoneNumber, cfg => cfg.MapFrom(p => p.Donator.PhoneNumber))
                 .ForMember(p => p.UserId, cfg => cfg.MapFrom(p => p.Donator.UserId))
                 .ForMember(p => p.KindName, cfg => cfg.MapFrom(p => p.Kind.Name));
         }

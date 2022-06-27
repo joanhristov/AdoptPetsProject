@@ -1,5 +1,49 @@
 ﻿@model PetDetailsServiceModel
 
 <div class="col-md-6 offset-3">
-    <h2>@Model.Breed @Model.Name</h2>
+    <img src="@Model.ImageUrl" class="img-fluid" alt="Responsive image">
+</div>
+<div>
+    <br />
+    <table class="table table-bordered table-success">
+        <tbody>
+            <tr>
+                <th scope="row" class="text-center table-primary">Kind:</th>
+                <td class="table-info">@Model.KindName</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center table-primary">Breed:</th>
+                <td class="table-info">@Model.Breed</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center table-primary">Name:</th>
+                <td class="table-info">@Model.Name</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center table-primary">Gender:</th>
+                <td class="table-info">@Model.Gender</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center table-primary">Age:</th>
+                <td class="table-info">@Model.Age</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center table-primary">Birth Date:</th>
+                <td class="table-info">@Model.BirthDate</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center table-primary">Description:</th>
+                <td class="table-info">@Model.Description</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-center table-primary">Phone Number:</th>
+                <td class="table-info">@Model.PhoneNumber</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+    <form>
+        <input class="btn btn-primary mt-3" type="button" value="Go back!" onclick="history.back()">
+    </form>
 </div>
